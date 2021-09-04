@@ -19,7 +19,6 @@ def parse_xml_file(self, serializer):
     url = serializer["original_path"]
 
     with requests.get(url) as response:
-        print(response.headers['content-type'])
         if response.headers['content-type'] == 'text/xml':
 
             filetemp = NamedTemporaryFile()
