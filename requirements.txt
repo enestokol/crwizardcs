@@ -1,0 +1,13 @@
+asgiref
+Django==3.2.5
+pytz
+sqlparse
+psycopg2
+markdown
+django-filter
+pyyaml
+pillow
+pandas
+openpyxl
+django-allauth
+django-debug-toolbar
