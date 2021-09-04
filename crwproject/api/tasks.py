@@ -6,10 +6,12 @@ from django.core.mail import send_mail
 from crwproject.celery import app
 from crwproject.xml_app.models import File
 
+
 @app.task
 def sendEmail(_subject, _message, _to):
     mail_sent = send_mail(_subject, _message, 'noreply@example.com', [_to])
     return mail_sent
+
 
 @app.task(bind=True)
 def parse_xml_file(self, serializer):
@@ -29,7 +31,6 @@ def parse_xml_file(self, serializer):
                 original_path=url,
                 file=(filename, django.core.files.File(filetemp)),
                 status=1
-
             )
         else:
             File.objects.create(
@@ -37,10 +38,3 @@ def parse_xml_file(self, serializer):
                 original_path=url,
                 status=2
             )
-
-            _subject = 'About {0}'.format(filename)
-            _message = '{0} was Rejected due to {1}'.format(
-                filename, "Messsage")
-            # _to = instance.created_by.email
-            # sendEmail.delay(_subject, _message, _to)
-
