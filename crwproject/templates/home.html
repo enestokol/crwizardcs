@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Homepage - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="background-color: #ff101b; height: 100px;"></div>
+            <div class="col-md-8" style="background-color: #5f5aff; height: 100px;">
+                <div class="row">
+                    <div class="col-md-2" style="background-color: #5cff00; height: 100px;"></div>
+                    <div class="col-md-6" style="background-color: #ff00ef; height: 100px;"></div>
+                    <div class="col-md-4" style="background-color: #3c2aff; height: 100px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    Hoşgeldin, {{ request.user.username }}
+{% endblock %}
