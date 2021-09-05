@@ -11,10 +11,11 @@ django-filter
 djangorestframework-simplejwt
 pyyaml
 pillow
-pandas
+pandas==1.3.2
 openpyxl
 redis
 celery
 django-celery-beat
 django-celery-results
 requests
+lxml
