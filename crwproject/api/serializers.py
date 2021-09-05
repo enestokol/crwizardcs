@@ -1,5 +1,9 @@
+from xml.dom import minidom
+
+import pandas as pd
 from rest_framework import serializers
 from ..xml_app.models import File
+import xml.etree.ElementTree as et
 
 
 # Extensions
@@ -29,8 +33,28 @@ class FileSerializer(serializers.ModelSerializer):
         read_only_fields = ['status', 'status_note', 'created_by', 'created_at', 'updated_by', 'updated_at']
 
 
+class FileListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = File
+        fields = '__all__'
+        read_only_fields = ['status', 'status_note', 'created_by', 'created_at', 'updated_by', 'updated_at']
+
+
+class FileDiffSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = File
+        fields = ['id','name', 'original_path', 'updated_file']
+
+
+class FileUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = File
+        fields = ['file', 'original_path']
+        read_only_fields = ['file', 'status', 'status_note', 'created_by', 'created_at', 'updated_by', 'updated_at']
+
+
 class FileCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
-        fields = ['name', 'original_path']
+        fields = ['original_path']
         read_only_fields = ['status', 'status_note', 'created_by', 'created_at', 'updated_by', 'updated_at']
