@@ -44,6 +44,11 @@ class File(Utility):
                                 allowed_extensions=['xml']),
                                 max_file_size])
 
+    updated_file = models.FileField(upload_to=upload_to,
+                                    validators=[FileExtensionValidator(
+                                        allowed_extensions=['xml']),
+                                        max_file_size], null=True, blank=True)
+
     status = models.CharField(
         max_length=1,
         choices=STATUS_CHOICES,
