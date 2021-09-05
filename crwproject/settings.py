@@ -130,7 +130,7 @@ WSGI_APPLICATION = 'crwproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'crw_db1',
+        'NAME': 'crw_db2',
         'USER': 'postgres',
         'PASSWORD': '123456',
         'HOST': '127.0.0.1',
